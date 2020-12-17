@@ -61,6 +61,14 @@ class LinkedList:
 		return self.__size
 
 
+	# iterate while the list
+	def iterate(self):
+		itrator = self.__head
+		while itrator != None:
+			curr = itrator
+			itrator = itrator.next_ptr
+			yield curr.value
+
 	# display the list items
 	def display(self):
 		itrator = self.__head
