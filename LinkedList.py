@@ -6,6 +6,7 @@ class LinkedList:
 	def __init__(self):
 		self.__head = None
 		self.__tail = None
+		self.__size = 0
 
 
 	# method to add value in the front of the list
@@ -17,6 +18,7 @@ class LinkedList:
 		else:
 			node.next_ptr = self.__head
 			self.__head = node
+		self.__size +=1
 
 
 	# method to add value at the end of the list
@@ -27,14 +29,16 @@ class LinkedList:
 			self.__tail = node		
 		else: 
 			self.__head = self.__tail = node	
-
+		self.__size +=1
 
 	# remove item from the list front 
 	def remove_first(self):
-		self.__head = self.__head.next_ptr	
-		if self.__head == None:
-			self.__tali = None
-	
+		if self.__head != None:
+			self.__head = self.__head.next_ptr	
+			if self.__head == None:
+				self.__tali = None
+			self.__size -= 1
+			
 
 	# remove item from the end of the list
 	def remove_last(self):
@@ -50,6 +54,11 @@ class LinkedList:
 			else:
 				prev.next_ptr = None
 				self.__tail = prev
+			self.__size -= 1
+
+	# get the size of the list
+	def get_size(self):
+		return self.__size
 
 
 	# display the list items
