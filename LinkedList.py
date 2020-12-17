@@ -30,8 +30,25 @@ class LinkedList:
 
 
 	# remove item from the list front 
-	def remove_front(self):
-		self.__head = self.__head.next_ptr
+	def remove_first(self):
+		self.__head = self.__head.next_ptr	
+	
+
+	# remove item from the end of the list
+	def remove_last(self):
+		if self.__head != None:
+			itrator = self.__head
+			prev = None
+			while itrator.next_ptr != None:
+				prev = itrator
+				itrator = itrator.next_ptr
+			if prev == None:
+				self.__tail = None
+				self.__head = None
+			else:
+				prev.next_ptr = None
+				self.__tail = prev
+
 
 	# display the list items
 	def display(self):
