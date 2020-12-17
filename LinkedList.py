@@ -32,6 +32,8 @@ class LinkedList:
 	# remove item from the list front 
 	def remove_first(self):
 		self.__head = self.__head.next_ptr	
+		if self.__head == None:
+			self.__tali = None
 	
 
 	# remove item from the end of the list
